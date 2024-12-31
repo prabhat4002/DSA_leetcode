@@ -16,30 +16,25 @@ class Solution {
         ListNode temp2=l2;
 
         int carry=0;
-        while(temp1!=null ||temp2!=null){
+        while(temp1!=null || temp2!=null){
             int sum=carry;
             if(temp1!=null){
                 sum=sum+temp1.val;
                 temp1=temp1.next;
-
             }
             if(temp2!=null){
                 sum=sum+temp2.val;
                 temp2=temp2.next;
-
             }
             ListNode NewNode=new ListNode(sum%10);
             carry=sum/10;
-
             curr.next=NewNode;
             curr=curr.next;
-
         }
         if(carry>0){
             ListNode NewNode=new ListNode(carry);
             curr.next=NewNode;
         }
         return dummy.next;
-
     }
 }
